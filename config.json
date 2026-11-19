@@ -1,0 +1,270 @@
+{
+  // =========================================================================
+  // BIRTHDAY MEMORY WALL — COMMENTED CONFIG FILE (config.json)
+  // Customize colors, wall texture, passcodes, 6 photos, 3 hovering cutouts,
+  // 2 secret notes, live counter, cake, and party poppers / firecrackers!
+  // Note: "//" comments are stripped automatically when loaded.
+  // =========================================================================
+
+  // 1. THEME PALETTE & WALL BACKGROUND
+  "meta": {
+    "pageTitle": "Happy Birthday Superstar! ✨🎂",
+    // Obsidian Botanical & Warm Brass Theme
+    "primaryColor": "#d97757",
+    "secondaryColor": "#e9c46a",
+    "accentColor": "#74c69d",
+    "surfaceColor": "#131c1e",
+    "backgroundColor": "#0b1113",
+    // Wall style options: "plaster-wall", "terracotta-brick", or "botanical-slate"
+    "wallStyle": "plaster-wall"
+  },
+
+  // 2. SECRET PASSCODE VAULT SCREEN
+  "vault": {
+    "badgeText": "PRIVATE WALL • SECRET ACCESS ✨",
+    "title": "The Memory Wall",
+    "subtitle": "Enter our secret passcode to step inside your birthday wall.",
+    // Case-insensitive valid passcodes
+    "passcodes": ["BESTIE", "1234", "2026"],
+    "inputPlaceholder": "Type secret passcode...",
+    "unlockButtonText": "Open The Wall ✨",
+    "hintButtonText": "Need a hint?",
+    "hintText": "Hint: What I always call you (or try 1234)",
+    "wrongPasscodeText": "Oops! Wrong passcode — try again!"
+  },
+
+  // 3. BACKGROUND MUSIC + SYNTH FALLBACK
+  "music": {
+    "enabled": true,
+    "songTitle": "Birthday Celebration Vibe",
+    "artistName": "Made Just For You",
+    "audioFile": "assets/music/song.mp3",
+    "useFallbackSynthIfMissing": true,
+    "playButtonText": "Play",
+    "pauseButtonText": "Pause"
+  },
+
+  // 4. PARTY POPPERS & FIRECRACKERS SETTINGS
+  "effects": {
+    "enableFirecrackerSound": true,
+    "tapAnywhereSparks": true
+  },
+
+  // 5. 3 RANDOMLY HOVERING CUTOUTS WITH CYCLING SPEECH BUBBLES
+  // Place transparent PNG cutouts at assets/cutouts/c1.png, c2.png, c3.png
+  "roamingCutouts": [
+    {
+      "id": "cutout-1",
+      "enabled": true,
+      "image": "assets/cutouts/c1.png",
+      "fallbackEmoji": "👑",
+      "messages": [
+        "Happy Birthday Superstar! 👑",
+        "10/10 Birthday Icon ✨",
+        "Tap me for confetti! 🎉"
+      ]
+    },
+    {
+      "id": "cutout-2",
+      "enabled": true,
+      "image": "assets/cutouts/c2.png",
+      "fallbackEmoji": "🥳",
+      "messages": [
+        "Make a big wish today! 🎂",
+        "Pure sunshine energy ☀️",
+        "Let's light up the sky! 🧨"
+      ]
+    },
+    {
+      "id": "cutout-3",
+      "enabled": true,
+      "image": "assets/cutouts/c3.png",
+      "fallbackEmoji": "💖",
+      "messages": [
+        "Bestie for life! 💖",
+        "Look at that glow-up 📸",
+        "Today is ALL about you! 🥳"
+      ]
+    }
+  ],
+
+  // 6. HERO BANNER
+  "hero": {
+    "topTag": "CELEBRATING YOU • SPECIAL EDITION",
+    "headline": "Happy Birthday, Bestie!",
+    "subheadline": "From your earliest little-kid days to the incredible person you are today—every chapter belongs right here on your wall.",
+    "popperButtonText": "Pop Party Cannons 🎊",
+    "firecrackerButtonText": "Launch Firecrackers 🧨",
+    "scrollCueText": "Scroll down—each photo pins onto the wall behind you ↓"
+  },
+
+  // 7. LIVE AGE COUNTER
+  "liveCounter": {
+    "enabled": true,
+    "sectionTitle": "Seconds You've Made The World Brighter",
+    "sectionSubtitle": "Every single moment since you arrived",
+    // Change to her exact birth date/time (YYYY-MM-DDTHH:mm:ss)
+    "birthDateISO": "2004-08-15T00:00:00",
+    "labels": {
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds"
+    },
+    "bottomCaption": "...and every year you shine even brighter ✨"
+  },
+
+  // 8. INTERACTIVE BIRTHDAY CAKE
+  "cake": {
+    "sectionTitle": "Make a Birthday Wish 🎂",
+    "instructionText": "Tap each glowing candle to blow it out!",
+    "wishGrantedTitle": "Wish Sent To The Stars 🌟",
+    "wishGrantedMessage": "May every crazy, beautiful dream in your heart come true this year!",
+    "relightButtonText": "Relight Candles 🕯️"
+  },
+
+  // 9. 6 PHOTOS (FROM SMALL AGE TO TILL NOW)
+  // - Frames auto-resize to match each photo's natural aspect ratio.
+  // - Set "isTransparentPng": true if an image is a transparent PNG cutout.
+  // - Scrolling past each photo pins it onto the background wall!
+  "wallPhotos": {
+    "sectionTitle": "From Small Age to Till Now 📸",
+    "sectionSubtitle": "Scroll down to pin each photo onto the wall—tap any frame to read its story.",
+    "photos": [
+      {
+        "image": "assets/photos/p1.jpg",
+        "isTransparentPng": false,
+        "eraBadge": "01 • TINY KID ERA",
+        "fallbackColor": "#d97757",
+        "emoji": "🍼",
+        "caption": "Where The Cuteness Started",
+        "story": "Look at those tiny cheeks! Already stealing the spotlight from day one.",
+        "wallPin": { "xPercent": 6, "yPercent": 14, "rotateDeg": -6 }
+      },
+      {
+        "image": "assets/photos/p2.jpg",
+        "isTransparentPng": false,
+        "eraBadge": "02 • CHILDHOOD DAYS",
+        "fallbackColor": "#e9c46a",
+        "emoji": "🧸",
+        "caption": "Pure Mischief & Big Smiles",
+        "story": "Zero worries, endless curiosity, and the happiest smile in every room.",
+        "wallPin": { "xPercent": 75, "yPercent": 18, "rotateDeg": 5 }
+      },
+      {
+        "image": "assets/photos/p3.jpg",
+        "isTransparentPng": false,
+        "eraBadge": "03 • SCHOOL MEMORIES",
+        "fallbackColor": "#74c69d",
+        "emoji": "🎒",
+        "caption": "Growing Up Fast",
+        "story": "Backpacks, big dreams, and becoming the kindest soul everyone loved.",
+        "wallPin": { "xPercent": 5, "yPercent": 42, "rotateDeg": 5 }
+      },
+      {
+        "image": "assets/photos/p4.jpg",
+        "isTransparentPng": false,
+        "eraBadge": "04 • TEEN CHAPTER",
+        "fallbackColor": "#457b9d",
+        "emoji": "🎧",
+        "caption": "Finding Your Spark",
+        "story": "Unstoppable energy, inside jokes, and memories that shaped who you are.",
+        "wallPin": { "xPercent": 76, "yPercent": 46, "rotateDeg": -6 }
+      },
+      {
+        "image": "assets/photos/p5.jpg",
+        "isTransparentPng": false,
+        "eraBadge": "05 • GLOW-UP ERA",
+        "fallbackColor": "#e09f3e",
+        "emoji": "✨",
+        "caption": "Effortless Confidence",
+        "story": "Stepping into every room with grace, strength, and that iconic laugh.",
+        "wallPin": { "xPercent": 7, "yPercent": 70, "rotateDeg": -5 }
+      },
+      {
+        "image": "assets/photos/p6.jpg",
+        "isTransparentPng": false,
+        "eraBadge": "06 • TILL NOW",
+        "fallbackColor": "#d97757",
+        "emoji": "👑",
+        "caption": "Today's Birthday Queen",
+        "story": "Look how far you've come—and the best chapters are still ahead of you!",
+        "wallPin": { "xPercent": 74, "yPercent": 72, "rotateDeg": 6 }
+      }
+    ],
+    "futurePromise": {
+      "enabled": true,
+      "title": "And Here's To What's Next ✨",
+      "text": "From your smallest childhood snapshots to right now—our wall still has plenty of room for all the new memories we're going to make this year!"
+    }
+  },
+
+  // 10. FLIP CARDS
+  "reasons": {
+    "sectionTitle": "Why Everyone Loves You",
+    "sectionSubtitle": "Tap each card to flip and reveal why you're one in a billion",
+    "cards": [
+      {
+        "frontNumber": "01",
+        "frontTitle": "Your Pure Heart",
+        "backText": "You show up for people wholeheartedly and make everyone around you feel valued."
+      },
+      {
+        "frontNumber": "02",
+        "frontTitle": "Contagious Joy",
+        "backText": "Your laugh literally lights up every single room you walk into."
+      },
+      {
+        "frontNumber": "03",
+        "frontTitle": "Fearless Spirit",
+        "backText": "You chase your dreams with courage and inspire me every single day."
+      },
+      {
+        "frontNumber": "04",
+        "frontTitle": "Unmatched Loyalty",
+        "backText": "Having you in my corner is the greatest blessing anyone could ask for."
+      }
+    ]
+  },
+
+  // 11. 2 SPECIAL NOTES ("OPEN WHEN...")
+  "envelopes": {
+    "sectionTitle": "Special Secret Notes 💌",
+    "sectionSubtitle": "Two sealed envelopes saved just for you—tap to open!",
+    "closeModalButtonText": "Close Note ✨",
+    "items": [
+      {
+        "label": "Open When You Need Confidence",
+        "tag": "HYPE SQUAD 🔥",
+        "title": "Reminder: You Are Unstoppable",
+        "message": "Whenever doubt creeps in, remember how many obstacles you've already crushed since that very first photo on the wall. You are brilliant, kind, and capable of achieving anything you set your mind to!"
+      },
+      {
+        "label": "Open At Midnight Tonight",
+        "tag": "BIRTHDAY WISH ✨",
+        "title": "My Biggest Wish For You",
+        "message": "I wish you a year overflowing with peace, unexpected blessings, belly laughs, and people who love you half as much as I do. Happy Birthday, superstar!"
+      }
+    ]
+  },
+
+  // 12. SPECIAL LETTER
+  "letter": {
+    "sectionTitle": "A Special Letter For You",
+    "salutation": "Dear Bestie,",
+    "paragraphs": [
+      "Happy Birthday! Today the entire universe celebrates the day you arrived and made everything brighter, funnier, and warmer.",
+      "Watching your journey from your smallest childhood days to the incredible person you are today is truly inspiring. Thank you for every laugh, every talk, and every memory.",
+      "May this new year bring you endless happiness, big achievements, and every single thing you've been wishing for!"
+    ],
+    "signOff": "With all my love & best wishes,",
+    "senderName": "Your Best Friend"
+  },
+
+  // 13. FOOTER
+  "footer": {
+    "finalPopperButtonText": "Grand Finale Poppers 🎊",
+    "finalFirecrackerButtonText": "Launch Sky Firecrackers 🧨",
+    "text": "Made with ❤️, confetti & firecrackers just for your birthday!"
+  }
+}

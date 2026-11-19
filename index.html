@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title id="page-title">Happy Birthday Superstar! ✨🎂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/wall.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <!-- 1. TEXTURED WALL BACKGROUND + SCROLL-PINNED PHOTOS LAYER -->
+  <div class="wall-backdrop" id="wall-backdrop"></div>
+  <div id="stuck-wall-layer"></div>
+
+  <!-- 2. 3 RANDOMLY HOVERING CUTOUTS WITH SPEECH BUBBLES -->
+  <div id="roaming-cutouts-layer"></div>
+
+  <!-- 3. PARTY POPPERS & FIRECRACKERS CANVAS -->
+  <canvas id="fx-canvas"></canvas>
+
+  <!-- PASSWORD VAULT SCREEN -->
+  <section id="vault-screen" class="vault-screen">
+    <div class="vault-door left-door"></div>
+    <div class="vault-door right-door"></div>
+
+    <div class="vault-card" id="vault-card">
+      <div class="vault-crest">
+        <span id="lock-icon">🔒</span>
+      </div>
+      <span class="badge" id="vault-badge">PRIVATE WALL</span>
+      <h1 id="vault-title">The Memory Wall</h1>
+      <p id="vault-subtitle">Enter the secret passcode to unlock</p>
+
+      <form id="vault-form" class="vault-form">
+        <input type="password" id="passcode-input" autocomplete="off" placeholder="Enter passcode..." required />
+        <button type="submit" id="unlock-btn" class="primary-btn">Unlock</button>
+      </form>
+
+      <p id="vault-error" class="error-msg" aria-live="polite"></p>
+      <button type="button" id="hint-toggle" class="link-btn">Need a hint?</button>
+      <p id="vault-hint" class="hint-msg hidden"></p>
+    </div>
+  </section>
+
+  <!-- MAIN CELEBRATION PAGE -->
+  <main id="main-content" class="main-content hidden">
+    <!-- HERO -->
+    <header class="hero section scroll-pop">
+      <span class="pill-tag" id="hero-tag">SPECIAL EDITION</span>
+      <h1 class="hero-title" id="hero-headline">Happy Birthday!</h1>
+      <div class="editorial-divider"><span>❖</span></div>
+      <p class="hero-sub" id="hero-subheadline"></p>
+      <div class="btn-cluster">
+        <button id="hero-popper-btn" class="primary-btn glow-btn">Pop Confetti 🎉</button>
+        <button id="hero-cracker-btn" class="secondary-btn">Launch Firecrackers 🧨</button>
+      </div>
+      <div class="scroll-cue" id="scroll-cue">Scroll down to pin memories to the wall ↓</div>
+    </header>
+
+    <!-- LIVE TICKING COUNTER -->
+    <section class="section counter-section scroll-pop" id="counter-section">
+      <h2 class="section-title" id="counter-title">Time You've Made The World Brighter</h2>
+      <p class="section-sub" id="counter-subtitle"></p>
+      <div class="counter-grid">
+        <div class="counter-box"><span class="counter-num" id="cnt-days">0</span><span class="counter-lbl" id="lbl-days">Days</span></div>
+        <div class="counter-box"><span class="counter-num" id="cnt-hours">0</span><span class="counter-lbl" id="lbl-hours">Hours</span></div>
+        <div class="counter-box"><span class="counter-num" id="cnt-mins">0</span><span class="counter-lbl" id="lbl-mins">Minutes</span></div>
+        <div class="counter-box"><span class="counter-num" id="cnt-secs">0</span><span class="counter-lbl" id="lbl-secs">Seconds</span></div>
+      </div>
+      <p class="counter-caption" id="counter-caption"></p>
+    </section>
+
+    <!-- INTERACTIVE CAKE -->
+    <section class="section cake-section scroll-pop">
+      <h2 class="section-title" id="cake-title">Make a Wish</h2>
+      <p class="section-sub" id="cake-instruction">Tap each candle to blow it out!</p>
+
+      <div class="cake-showcase">
+        <div class="cake" id="birthday-cake">
+          <div class="candles-row" id="candles-row">
+            <div class="candle" data-lit="true"><div class="flame"></div><div class="wick"></div></div>
+            <div class="candle" data-lit="true"><div class="flame"></div><div class="wick"></div></div>
+            <div class="candle" data-lit="true"><div class="flame"></div><div class="wick"></div></div>
+          </div>
+          <div class="cake-top"></div>
+          <div class="cake-middle"></div>
+          <div class="cake-bottom"></div>
+          <div class="cake-plate"></div>
+        </div>
+      </div>
+
+      <div id="wish-banner" class="wish-banner hidden">
+        <h3 id="wish-title"></h3>
+        <p id="wish-message"></p>
+        <button id="relight-btn" class="secondary-btn">Relight Candles</button>
+      </div>
+    </section>
+
+    <!-- 6 PHOTOS: SMALL AGE TO TILL NOW (AUTO-RESIZE FRAMES + STICK TO WALL ON SCROLL) -->
+    <section class="section gallery-section">
+      <h2 class="section-title scroll-pop" id="gallery-title">From Small Age to Till Now</h2>
+      <p class="section-sub scroll-pop" id="gallery-subtitle"></p>
+      <div class="wall-timeline-stream" id="wall-photo-stream"></div>
+
+      <!-- FUTURE PROMISE CARD -->
+      <div class="promise-card scroll-pop" id="promise-card">
+        <span class="badge">CHAPTER NEXT</span>
+        <h3 id="promise-title">Here's To What's Next ✨</h3>
+        <p id="promise-text"></p>
+      </div>
+    </section>
+
+    <!-- WHY EVERYONE LOVES YOU -->
+    <section class="section reasons-section scroll-pop">
+      <h2 class="section-title" id="reasons-title">Why Everyone Loves You</h2>
+      <p class="section-sub" id="reasons-subtitle"></p>
+      <div class="flip-grid" id="flip-grid"></div>
+    </section>
+
+    <!-- 2 SPECIAL NOTES ("OPEN WHEN...") -->
+    <section class="section envelopes-section scroll-pop">
+      <h2 class="section-title" id="envelopes-title">Special Secret Notes</h2>
+      <p class="section-sub" id="envelopes-subtitle"></p>
+      <div class="envelopes-grid" id="envelopes-grid"></div>
+    </section>
+
+    <!-- SPECIAL LETTER -->
+    <section class="section letter-section scroll-pop">
+      <h2 class="section-title" id="letter-title">A Letter For You</h2>
+      <div class="letter-wrapper">
+        <article class="letter-paper">
+          <p class="letter-salutation" id="letter-salutation"></p>
+          <div id="letter-body"></div>
+          <p class="letter-signoff" id="letter-signoff"></p>
+          <p class="letter-sender" id="letter-sender"></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer scroll-pop">
+      <div class="btn-cluster">
+        <button id="finale-popper-btn" class="primary-btn glow-btn">Grand Finale Poppers 🎊</button>
+        <button id="finale-cracker-btn" class="secondary-btn">Launch Sky Firecrackers 🧨</button>
+      </div>
+      <p id="footer-text" class="footer-copy"></p>
+    </footer>
+  </main>
+
+  <!-- FLOATING BAR -->
+  <div id="music-bar" class="music-bar hidden">
+    <div class="music-info">
+      <span class="eq-bars" id="eq-bars"><span></span><span></span><span></span></span>
+      <div>
+        <div class="song-title" id="song-title">Birthday Song</div>
+        <div class="song-artist" id="song-artist">Bestie</div>
+      </div>
+    </div>
+    <div class="music-controls">
+      <button id="mini-popper-btn" class="mini-icon-btn" title="Pop Confetti">🎉</button>
+      <button id="mini-cracker-btn" class="mini-icon-btn" title="Launch Firecrackers">🧨</button>
+      <button id="music-toggle-btn" class="music-btn">Pause</button>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div id="modal-content"></div>
+      <button id="modal-close-btn" class="primary-btn modal-close">Close</button>
+    </div>
+  </div>
+
+  <audio id="bg-audio" loop preload="auto"></audio>
+
+  <script src="js/config.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
